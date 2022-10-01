@@ -30,8 +30,8 @@ public class CircleTwinLinkedList <T> {
             head.setBack(head);
             size++;
         }else{
-            TwinNode n = new TwinNode (data);
-            TwinNode p = head.getBack();
+            TwinNode<T> n = new TwinNode (data);
+            TwinNode<T> p = head.getBack();
             p.setNext(n);
             n.setNext(head);
             n.setBack(p);
@@ -44,7 +44,7 @@ public class CircleTwinLinkedList <T> {
         if (isEmpty()){
             System.out.println("The List is Empty");
         }else{
-            TwinNode p = head;
+            TwinNode<T> p = head;
             int i = size;
             while (i>0){
                 System.out.print(p.getData()+" -> ");
@@ -57,7 +57,7 @@ public class CircleTwinLinkedList <T> {
     
     public void deleteLast(){
         if (!isEmpty()){
-            TwinNode p = head.getBack();
+            TwinNode<T> p = head.getBack();
             p.getBack().setNext(head);
             head.setBack(p.getBack());
             p.setBack(null);
@@ -68,7 +68,7 @@ public class CircleTwinLinkedList <T> {
     
     public void deleteFirst(){
         if (!isEmpty()){
-            TwinNode p = head.getBack();
+            TwinNode<T> p = head.getBack();
             head.setBack(null);
             p.setNext(head.getNext());
             head.setNext(null);
@@ -80,8 +80,8 @@ public class CircleTwinLinkedList <T> {
     
     public void delete (T data){
         if (!isEmpty()){
-            TwinNode p = head;
-            TwinNode q = null;
+            TwinNode<T> p = head;
+            TwinNode<T> q = null;
             if (p.getData() == data){
                 deleteFirst();
             }else{
@@ -103,9 +103,9 @@ public class CircleTwinLinkedList <T> {
     
     public void addBefore(T newData, T data){
         if (!isEmpty()){
-            TwinNode p = head;
-            TwinNode q = null;
-            TwinNode n = new TwinNode(newData);
+            TwinNode<T> p = head;
+            TwinNode<T> q = null;
+            TwinNode<T> n = new TwinNode(newData);
             if (p.getData() == data){
                 deleteFirst();
             }else{
@@ -126,9 +126,9 @@ public class CircleTwinLinkedList <T> {
     
     public void addAfter(T newData, T data){
         if (!isEmpty()){
-            TwinNode p = head;
-            TwinNode q = null;
-            TwinNode n = new TwinNode(newData);
+            TwinNode<T> p = head;
+            TwinNode<T> q = null;
+            TwinNode<T> n = new TwinNode(newData);
             if (p.getData() == data){
                 deleteFirst();
             }else{
@@ -148,6 +148,19 @@ public class CircleTwinLinkedList <T> {
         }
     }
     
+    public T get(int index){
+        TwinNode<T> p = head;
+        if (!isEmpty()&&index<=size){
+            while (index<0){
+                p = p.getNext();
+                index--;
+            }
+            return p.getData();
+        }else{
+            return null;
+        }
+    }
+    
     public T getFirst(){
         if (isEmpty()){
             return null;
@@ -157,6 +170,25 @@ public class CircleTwinLinkedList <T> {
     }
     
     public void clear(){
-        
+        head = null;
+        size = 0;
     }
+    
+    public int getSize(){
+        return size;
+    }
+    
+    public int indexOf(T data){
+        if (isEmpty()){
+            TwinNode<T> p = head;
+            int i = 0;
+            while (p.getData() != data && i<=size){
+                p = p.getNext();
+                i++;
+            }
+            return i;
+        }else{
+            return -1;
+        }
+    }               
 }
