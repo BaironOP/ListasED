@@ -186,7 +186,7 @@ public class SingleList<T> {
             cont = 0;
             while (p.getNext()!=null){
                 if (p.getData()==data){
-                    cont++;
+                    
                     break;
                 }
                 p = p.getNext();
