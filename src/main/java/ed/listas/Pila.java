@@ -58,4 +58,8 @@ public class Pila <T>{
             return top.getData();
         }
     }
+    
+    public int getSize(){
+        return size;
+    }
 }
