@@ -9,54 +9,53 @@ package ed.listas;
  *
  * @author Usuario
  */
-public class Pila {
+public class Pila <T>{
     
-    private int top;
-    private Libro[] list;
+    private Node<T> top;
+    private int size;
 
-    public Pila(int size) {
-        top = -1;
-        list = new Libro[size];
+    public Pila() {
+        top = null;
+        size = 0;
     }
     
     public boolean isEmpty(){
-        return top==-1;
+        return top==null && size==0;
     }
     
-    public boolean isFull(){
-        return (top+1)==list.length;
-    }
-    
-    public void push(Libro elemento){
+    public void push(T data){
+        Node<T> n = new Node(data);
         if (isEmpty()){
-            top = 0;
-            list[top]=elemento;
-        } else {
-            if (!isFull()){
-                top++;
-                list[top] = elemento;
-            }
+            top = n;
+            size++;
+        }else{
+            n.setNext(top);
+            top = n;
         }
     }
     
-    public Libro pop(){
-        Libro l=null;
+    public T pop(){
+        Node<T> p;
         if (!isEmpty()){
-            l = list[top];
-            list[top]=null;
-            top--;
+            return null;
+        }else{
+            p = top;
+            top = top.getNext();
+            size--;
+            return p.getData();
         }
-        return l;
     }
     
     public void clear(){
-        while(top>=0){
-            list[top] = null;
-            top--;
-        }
+        top = null;
+        size = 0;
     }
     
-    public Libro getTop(){
-        return list[top];
+    public T getTop(){
+        if (!isEmpty()){
+            return null;
+        }else{
+            return top.getData();
+        }
     }
 }
