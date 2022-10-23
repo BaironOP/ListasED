@@ -16,21 +16,24 @@ public class ClientPila {
     private static Pila<Integer> pSuma = new Pila();
     
     public static void main (String[] args){
-        for (int i = (int) (Math.random()*10); i>0; i--){
+        for (int i = (int)(Math.random()*10); i>=0; i--){
             int valor = (int) (Math.random()*10);
             p1.push(valor);
         }
-        for (int i = (int) (Math.random()*10); i>0; i--){
+        for (int i = (int)(Math.random()*10); i>=0; i--){
             int valor = (int) (Math.random()*10);
             p2.push(valor);
         }
-        pSuma = sumarPilas (p1, p2);
+        
         for (int i = p1.getSize(); i>0; i--){
             System.out.println(p1.pop());
         }
         for (int i = p2.getSize(); i>0; i--){
             System.out.println(p2.pop());
         }
+        
+        
+        pSuma = sumarPilas (p1, p2);
         for (int i = pSuma.getSize(); i>0; i--){
             System.out.println(pSuma.pop());
         }
@@ -45,7 +48,8 @@ public class ClientPila {
             suma1.push(mayor.pop());
         }
         for (int i = menor.getSize(); i>0; i--){
-            suma1.push(mayor.pop()+menor.pop());
+            int suma = mayor.pop() + menor.pop();
+            suma1.push(suma);
         }
         Pila<Integer> sumaT = new Pila();
         for (int i = suma1.getSize(); i>0; i--){

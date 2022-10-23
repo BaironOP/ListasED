@@ -6,7 +6,7 @@ public class Node<T> {
     private Node<T> next;
 
     public Node(T data) {
-            setData(data);		
+            this.data = data;		
     }
 
     public Node() {
