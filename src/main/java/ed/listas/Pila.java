@@ -31,6 +31,7 @@ public class Pila <T>{
         }else{
             n.setNext(top);
             top = n;
+            size++;
         }
     }
     

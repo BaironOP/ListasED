@@ -17,22 +17,23 @@ public class ClientPila {
     
     public static void main (String[] args){
         int valor = 0;
-        for (int i = (int)(Math.random()*10); i>0; i--){
-            valor = (int) (Math.random()*10);
+        for (int i = (int)(Math.random()*10); i>=0; i--){
+            valor = (int)(Math.random()*10);
             p1.push(valor);
         }
-        for (int i = (int)(Math.random()*10); i>0; i--){
-            valor = (int) (Math.random()*10);
+        for (int i = (int)(Math.random()*10); i>=0; i--){
+            valor = (int)(Math.random()*10);
             p2.push(valor);
         }
         
         for (int i = p1.getSize(); i>0; i--){
-            System.out.println(p1.pop());
+            System.out.print(p1.pop()+" -> ");
         }
+        System.out.println();
         for (int i = p2.getSize(); i>0; i--){
-            System.out.println(p2.pop());
+            System.out.print(p2.pop()+" -> ");
         }
-        
+        System.out.println();
         
         pSuma = sumarPilas (p1, p2);
         for (int i = pSuma.getSize(); i>0; i--){
