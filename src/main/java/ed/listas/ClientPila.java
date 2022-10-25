@@ -16,12 +16,13 @@ public class ClientPila {
     private static Pila<Integer> pSuma = new Pila();
     
     public static void main (String[] args){
-        for (int i = (int)(Math.random()*10); i>=0; i--){
-            int valor = (int) (Math.random()*10);
+        int valor = 0;
+        for (int i = (int)(Math.random()*10); i>0; i--){
+            valor = (int) (Math.random()*10);
             p1.push(valor);
         }
-        for (int i = (int)(Math.random()*10); i>=0; i--){
-            int valor = (int) (Math.random()*10);
+        for (int i = (int)(Math.random()*10); i>0; i--){
+            valor = (int) (Math.random()*10);
             p2.push(valor);
         }
         

@@ -36,7 +36,7 @@ public class Pila <T>{
     
     public T pop(){
         Node<T> p;
-        if (!isEmpty()){
+        if (isEmpty()){
             return null;
         }else{
             p = top;
