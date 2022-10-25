@@ -45,14 +45,16 @@ public class ClientPila {
         }
         System.out.println();
         
-        p1= invertirPila(p1i);
-        p2= invertirPila(p2i);
+        pSuma = sumarPilas (p1i, p2i);
+        pSuma = invertirPila(pSuma);
         
-        pSuma = sumarPilas (p1, p2);
+        System.out.println("Pila total"
+                + "");
         for (int i = pSuma.getSize(); i>0; i--){
             System.out.println(pSuma.pop());
         }
         System.out.println();
+        
     }
     
     public static Pila sumarPilas (Pila a, Pila b){
