@@ -13,6 +13,8 @@ public class ClientPila {
     
     private static Pila<Integer> p1 = new Pila();
     private static Pila<Integer> p2 = new Pila();
+    private static Pila<Integer> p1i = new Pila();
+    private static Pila<Integer> p2i = new Pila();
     private static Pila<Integer> pSuma = new Pila();
     
     public static void main (String[] args){
@@ -25,20 +27,32 @@ public class ClientPila {
             valor = (int)(Math.random()*10);
             p2.push(valor);
         }
-        
+        System.out.println(""
+                + "Pila 1"
+                + "");
         for (int i = p1.getSize(); i>0; i--){
-            System.out.print(p1.pop()+" -> ");
+            int d = p1.pop();
+            System.out.println(d);
+            p1i.push(d);
         }
-        System.out.println();
+        System.out.println(""
+                + "Pila 2"
+                + "");
         for (int i = p2.getSize(); i>0; i--){
-            System.out.print(p2.pop()+" -> ");
+            int d = p2.pop();
+            System.out.println(d);
+            p2i.push(d);
         }
         System.out.println();
+        
+        p1= invertirPila(p1i);
+        p2= invertirPila(p2i);
         
         pSuma = sumarPilas (p1, p2);
         for (int i = pSuma.getSize(); i>0; i--){
             System.out.println(pSuma.pop());
         }
+        System.out.println();
     }
     
     public static Pila sumarPilas (Pila a, Pila b){
@@ -94,5 +108,13 @@ public class ClientPila {
             menor=a;
         }
         return menor;
+    }
+    
+    public static Pila invertirPila(Pila<Integer> p){
+        Pila <Integer> inv = new Pila();
+        for (int i = p.getSize(); i>0; i--){
+            inv.push(p.pop());
+        }
+        return inv;
     }
 }
