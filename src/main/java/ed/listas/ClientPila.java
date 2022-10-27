@@ -48,8 +48,7 @@ public class ClientPila {
         pSuma = sumarPilas (p1i, p2i);
         pSuma = invertirPila(pSuma);
         
-        System.out.println("Pila total"
-                + "");
+        System.out.println("Pila total");
         for (int i = pSuma.getSize(); i>0; i--){
             System.out.println(pSuma.pop());
         }
