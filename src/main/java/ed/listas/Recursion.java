@@ -12,7 +12,10 @@ package ed.listas;
 public class Recursion {
     public static void main (String [] args){
         //nPrint("Hola mundo", 4);
-        descomponer("Hola mundo");
+        //descomponer("Hola mundo");
+        //System.out.println(sumar(4));
+        //System.out.println(fibo(6));
+        System.out.println(factorial(4));
     }
     
     static void nPrint(String m, int i){
@@ -36,6 +39,30 @@ public class Recursion {
         if (m.length()>1){
             String nc = m.substring(1);
             descomponer(nc);
+        }
+    }
+    
+    static long sumar(long n){
+        if (n==1){
+            return n;
+        }else{
+            return n+sumar(n-1);
+        }
+    }
+    
+    static long fibo (long n){
+        if (n==1||n==0){
+            return n;
+        }else{
+            return fibo(n-1)+fibo(n-2);
+        }
+    }
+    
+    static long factorial(long n){
+        if(n==1){
+            return 1;
+        }else{
+            return n*factorial(n-1);
         }
     }
 }
