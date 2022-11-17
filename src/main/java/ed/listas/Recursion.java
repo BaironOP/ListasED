@@ -5,6 +5,8 @@
  */
 package ed.listas;
 
+import java.io.File;
+
 /**
  *
  * @author Usuario
@@ -63,6 +65,28 @@ public class Recursion {
             return 1;
         }else{
             return n*factorial(n-1);
+        }
+    }
+    
+    static long getSize (File file){
+        if (file.isDirectory()){
+            int n = file.listFiles().length;
+            return getSize(file, n-1);
+        }else{
+            return file.length();
+        }
+    }
+    
+    static long getSize (File file, int n){
+        if (n>=0){
+            if (file.listFiles()[n].isDirectory()){
+                int m = file.listFiles()[n].listFiles().length;
+                return getSize(file.listFiles()[n], m-1);
+            }else{
+                return file.listFiles()[n].length()+getSize(file, n-1);
+            }
+        }else{
+            return 0;
         }
     }
 }
