@@ -9,8 +9,6 @@ public class SingleList<T> {
         head=null;
         size=0;
     }
-    
-    
 
     public void add(T data){
     
@@ -72,8 +70,6 @@ public class SingleList<T> {
             p.setNext(null);
             size--;
         }
-    	
-        
     }
     
     public void delete(T data) {
@@ -92,10 +88,8 @@ public class SingleList<T> {
                     size--;
                     break;
                 }
-            }
-            
+            }   
         }
-    	
     }
     
     public void addBefore(T newData, T data) {
@@ -154,7 +148,6 @@ public class SingleList<T> {
         }else{
             return null;
         }
-        
     }
     
     public boolean isEmpty(){
@@ -167,7 +160,6 @@ public class SingleList<T> {
         }else{
             return null;
         }
-        
     }
     
     public void clear (){
